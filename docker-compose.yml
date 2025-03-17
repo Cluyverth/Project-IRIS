@@ -6,6 +6,8 @@ networks:
 
 volumes:
   ollama:
+  openwebui:
+
 
 services:
   ollama:
@@ -22,7 +24,7 @@ services:
           devices:
             - driver: nvidia
               count: 1
-              capabilities: [gpu]
+              capabilities: [ gpu ]
 
   lobe-chat:
     image: lobehub/lobe-chat:latest
@@ -33,5 +35,14 @@ services:
       - ACCESS_CODE=lobe66
       # Se precisar de proxy, descomente a linha abaixo e ajuste conforme necessário:
       # - OPENAI_PROXY_URL=https://api-proxy.com/v1
+    networks:
+      - iris-network
+
+  openwebui:
+    image: ghcr.io/openai/openwebui:latest
+    ports:
+      - "7860:7860"
+    volumes:
+      - openwebui:/app/models
     networks:
       - iris-network
