@@ -1,0 +1,37 @@
+name: project-iris
+
+networks:
+  iris-network:
+    driver: bridge
+
+volumes:
+  ollama:
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama:/root/.ollama
+    networks:
+      - iris-network
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  lobe-chat:
+    image: lobehub/lobe-chat:latest
+    ports:
+      - "3210:3210"
+    environment:
+      - OPENAI_API_KEY=sk-xxxx
+      - ACCESS_CODE=lobe66
+      # Se precisar de proxy, descomente a linha abaixo e ajuste conforme necessário:
+      # - OPENAI_PROXY_URL=https://api-proxy.com/v1
+    networks:
+      - iris-network
