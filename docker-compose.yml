@@ -39,7 +39,7 @@ services:
       - iris-network
 
   openwebui:
-    image: ghcr.io/openai/openwebui:latest
+    image: ghcr.io/open-webui/open-webui:main
     ports:
       - "7860:7860"
     volumes:
