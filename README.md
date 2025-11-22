@@ -4,6 +4,7 @@
 ![Nvidia](https://img.shields.io/badge/Nvidia_CUDA-76B900?style=for-the-badge&logo=nvidia&logoColor=white)
 ![Ollama](https://img.shields.io/badge/Ollama-Backend-black?style=for-the-badge)
 [![License](https://img.shields.io/github/license/Cluyverth/Project-IRIS?style=for-the-badge)](LICENSE)
+![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge)
 
 **Project IRIS** is a robust, containerized ecosystem for running Large Language Models (LLMs) locally and privately. 
 
